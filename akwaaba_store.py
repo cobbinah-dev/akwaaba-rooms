@@ -227,7 +227,7 @@ def add_hostel(data, university_code, campus_name, hostel_data):
         return False, "Hostel name is required."
     if get_hostel(campus, hostel_data["name"]):
         return False, "A hostel with this name already exists on this campus."
-    # Support extended fields: price, amenities, image_urls (backwards compatible with image_paths)
+    # Support extended fields: price, amenities, image_urls, contact info, marketplace features
     hostel = {
         "name": hostel_data["name"].strip(),
         "description": hostel_data.get("description", ""),
@@ -239,6 +239,12 @@ def add_hostel(data, university_code, campus_name, hostel_data):
         "image_urls": hostel_data.get("image_urls", []) or hostel_data.get("image_paths", []),
         "price": hostel_data.get("price", None),
         "amenities": hostel_data.get("amenities", []),
+        # Marketplace fields
+        "manager_name": hostel_data.get("manager_name", ""),
+        "contact_phone": hostel_data.get("contact_phone", ""),
+        "whatsapp": hostel_data.get("whatsapp", ""),
+        "email": hostel_data.get("email", ""),
+        "verified": hostel_data.get("verified", False),
     }
     campus["hostels"].append(hostel)
     _save(data)

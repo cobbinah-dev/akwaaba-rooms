@@ -1,0 +1,25 @@
+{
+  "reviews": [
+    {
+      "hostel_name": "Akwaaba Hall",
+      "student_name": "John Doe",
+      "rating": 4.5,
+      "comment": "Great hostel, wifi is good!",
+      "timestamp": "2026-06-06T04:22:36.093053"
+    },
+    {
+      "hostel_name": "Akwaaba Hall",
+      "student_name": "Jane Smith",
+      "rating": 5,
+      "comment": "Excellent service and clean rooms",
+      "timestamp": "2026-06-06T04:22:36.093588"
+    }
+  ],
+  "favorites": {
+    "student_001": [
+      "Akwaaba Hall",
+      "Ocean View Residence"
+    ]
+  },
+  "price_alerts": []
+}
