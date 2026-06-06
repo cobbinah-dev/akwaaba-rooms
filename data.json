@@ -1,0 +1,81 @@
+{
+  "blocks": [
+    {
+      "id": 1,
+      "name": "A"
+    },
+    {
+      "id": 2,
+      "name": "B"
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "number": "A-101",
+      "capacity": 2,
+      "block_id": 1
+    },
+    {
+      "id": 2,
+      "number": "A-102",
+      "capacity": 1,
+      "block_id": 1
+    },
+    {
+      "id": 3,
+      "number": "B-201",
+      "capacity": 3,
+      "block_id": 2
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "student_number": "S1001",
+      "name": "Alice Smith",
+      "year": 2
+    },
+    {
+      "id": 2,
+      "student_number": "S1002",
+      "name": "Bob Jones",
+      "year": 1
+    },
+    {
+      "id": 3,
+      "student_number": "S1003",
+      "name": "Charlie Li",
+      "year": 3
+    },
+    {
+      "id": 4,
+      "student_number": "S1780707893",
+      "name": "Patrick",
+      "year": 1
+    }
+  ],
+  "allocations": [
+    {
+      "id": 1,
+      "student_id": 1,
+      "room_id": 1,
+      "start_date": "2026-06-06",
+      "end_date": null
+    },
+    {
+      "id": 2,
+      "student_id": 2,
+      "room_id": 1,
+      "start_date": "2026-06-06",
+      "end_date": null
+    },
+    {
+      "id": 3,
+      "student_id": 3,
+      "room_id": 3,
+      "start_date": "2026-06-06",
+      "end_date": null
+    }
+  ]
+}
