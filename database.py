@@ -4,7 +4,8 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 DATABASE_URL = "sqlite:///hostel.db"
 
 engine = create_engine(DATABASE_URL, echo=False, future=True)
-SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+# Use modern sessionmaker parameters: avoid unsupported `autocommit`
+SessionLocal = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
 Base = declarative_base()
 
 def init_db():

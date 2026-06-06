@@ -2,7 +2,7 @@ import json
 import math
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent
 DATA_FILE = ROOT / "akwaaba_data.json"
 
 DEFAULT_DATA = {
@@ -227,6 +227,7 @@ def add_hostel(data, university_code, campus_name, hostel_data):
         return False, "Hostel name is required."
     if get_hostel(campus, hostel_data["name"]):
         return False, "A hostel with this name already exists on this campus."
+    # Support extended fields: price, amenities, image_urls (backwards compatible with image_paths)
     hostel = {
         "name": hostel_data["name"].strip(),
         "description": hostel_data.get("description", ""),
@@ -234,7 +235,10 @@ def add_hostel(data, university_code, campus_name, hostel_data):
         "room_types": hostel_data.get("room_types", []),
         "available_slots": hostel_data.get("available_slots", 0),
         "gps_coordinates": hostel_data.get("gps_coordinates", {}),
-        "image_paths": hostel_data.get("image_paths", []),
+        "image_paths": hostel_data.get("image_paths", []) or hostel_data.get("image_urls", []),
+        "image_urls": hostel_data.get("image_urls", []) or hostel_data.get("image_paths", []),
+        "price": hostel_data.get("price", None),
+        "amenities": hostel_data.get("amenities", []),
     }
     campus["hostels"].append(hostel)
     _save(data)
@@ -293,4 +297,3 @@ def get_hostel_room_types(hostel):
 
 def get_hostel_rules(hostel):
     return hostel.get("rules", [])
-*** End Patch

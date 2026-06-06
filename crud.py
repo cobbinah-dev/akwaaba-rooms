@@ -2,7 +2,7 @@ import json
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent
 DATA_FILE = ROOT / "data.json"
 
 
